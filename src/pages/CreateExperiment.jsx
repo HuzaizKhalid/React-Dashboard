@@ -1,54 +1,61 @@
 const CreateExperiment = () => {
   return (
     <div className="flex flex-col bg-gray-950 h-screen gap-3">
+      {/* Select Files */}
       <div className="bg-black flex flex-col p-3">
-        <label className="text-white" htmlFor="problemType">
-          Dataset
+        <label className="text-white" htmlFor="selectFiles">
+          Select Files
         </label>
-        <select className="mt-2 p-1" id="problemType" name="problemType">
-          <option value="">Select a problem type</option>
-          <option value="bug">Bug</option>
-          <option value="feature">Feature Request</option>
-          <option value="enhancement">Enhancement</option>
-          <option value="documentation">Documentation</option>
+        <input
+          className="mt-2 p-1"
+          type="file"
+          id="selectFiles"
+          name="selectFiles"
+          multiple
+        />
+      </div>
+
+      {/* File Type */}
+      <div className="bg-black flex flex-col p-3">
+        <label className="text-white" htmlFor="fileType">
+          File Type
+        </label>
+        <select className="mt-2 p-1" id="fileType" name="fileType">
+          <option value="">Select a file type</option>
+          <option value="csv">CSV</option>
+          <option value="txt">Text</option>
+          <option value="audio">Audio</option>
+          <option value="images">Images</option>
         </select>
       </div>
+
+      {/* LLM to be Finetuned */}
       <div className="bg-black flex flex-col p-3">
-        <label className="text-white" htmlFor="problemType">
-          Problem Type
+        <label className="text-white" htmlFor="llmBackbone">
+          LLM to be Finetuned
         </label>
-        <select className="mt-2 p-1" id="problemType" name="problemType">
-          <option value="">Select a problem type</option>
-          <option value="bug">Bug</option>
-          <option value="feature">Feature Request</option>
-          <option value="enhancement">Enhancement</option>
-          <option value="documentation">Documentation</option>
-        </select>
+        <input
+          className="mt-2 p-1"
+          type="text"
+          id="llmBackbone"
+          name="llmBackbone"
+        />
       </div>
+
+      {/* Experiment Name */}
       <div className="bg-black flex flex-col p-3">
-        <label className="text-white" htmlFor="">
+        <label className="text-white" htmlFor="experimentName">
           Experiment Name
         </label>
-        <input className="mt-2 p-1" type="text" />
+        <input
+          className="mt-2 p-1"
+          type="text"
+          id="experimentName"
+          name="experimentName"
+        />
       </div>
-      <div className="bg-black flex flex-col p-3">
-        <label className="text-white" htmlFor="">
-          LLM backbone
-        </label>
-        <input className="mt-2 p-1" type="text" />
-      </div>
-      <div className="bg-black flex flex-col p-3">
-        <label className="text-white" htmlFor="problemType">
-          Train Dataset
-        </label>
-        <select className="mt-2 p-1" id="problemType" name="problemType">
-          <option value="">Select a problem type</option>
-          <option value="bug">Bug</option>
-          <option value="feature">Feature Request</option>
-          <option value="enhancement">Enhancement</option>
-          <option value="documentation">Documentation</option>
-        </select>
-      </div>
+
+      {/* Run Experiment Button */}
       <button className="text-black bg-yellow-500 w-32 p-2 ml-3 rounded-md">
         Run Experiment
       </button>

@@ -1,55 +1,65 @@
-import { useState } from "react";
-import HiddenSidebar from "./HiddenSidebar";
-import { IoIosArrowUp } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
 
-const Sidebar = () => {
-  const [openSections, setOpenSections] = useState({
-    navigation: false,
-    datasets: false,
-    experiments: false,
-  });
-
-  const toggleSection = (section) => {
-    setOpenSections((prevState) => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
-  };
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const sidebarClasses = isOpen
+    ? "translate-x-0 ease-out"
+    : "-translate-x-full ease-in";
 
   return (
-    <div className="bg-slate-950 flex flex-col items-center justify-evenly md:h-screen md:w-44">
-      <div
-        onClick={() => toggleSection("navigation")}
-        className="flex justify-center w-full  cursor-pointer -mt-12"
-      >
-        <IoIosArrowUp className=" mt-3 text-lg text-white" />
-        <div className="text-white text-center border-b-2 border-gray-400 p-2">
-          Navigation
-        </div>
+    <div
+      className={`fixed z-30 inset-y-0 left-0 w-64 transition duration-300 transform bg-gray-900 overflow-y-auto lg:translate-x-0 lg:static lg:inset-0 ${sidebarClasses}`}
+    >
+      <div className="flex items-center justify-between p-4 lg:hidden">
+        <span className="text-white text-2xl font-semibold">Dashboard</span>
+        <button
+          onClick={toggleSidebar}
+          className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+        >
+          <FaTimes className="h-6 w-6" />
+        </button>
       </div>
-      <HiddenSidebar open={openSections.navigation} section="navigation" />
 
-      <div
-        onClick={() => toggleSection("datasets")}
-        className="flex justify-center w-full  cursor-pointer -mt-12"
-      >
-        <IoIosArrowUp className=" mt-3 text-lg text-white" />
-        <div className="text-white text-center border-b-2 border-gray-400 p-2">
-          Datasets
-        </div>
+      <div className="hidden lg:flex items-center justify-center mt-8">
+        <span className="text-white text-2xl font-semibold">Dashboard</span>
       </div>
-      <HiddenSidebar open={openSections.datasets} section="datasets" />
 
-      <div
-        onClick={() => toggleSection("experiments")}
-        className="flex justify-center w-full  cursor-pointer -mt-12"
-      >
-        <IoIosArrowUp className=" mt-3 text-lg text-white" />
-        <div className="text-white text-center border-b-2 border-gray-400 p-2">
-          Experiments
-        </div>
-      </div>
-      <HiddenSidebar open={openSections.experiments} section="experiments" />
+      <nav className="mt-10">
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/"
+        >
+          <span className="mx-3">Home</span>
+        </Link>
+
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/create-experiment"
+        >
+          <span className="mx-3">Create Experiment</span>
+        </Link>
+
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/data-upload"
+        >
+          <span className="mx-3">Data Upload</span>
+        </Link>
+
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/data-processing"
+        >
+          <span className="mx-3">Data Processing</span>
+        </Link>
+
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/manage-datasets"
+        >
+          <span className="mx-3">Manage Datasets</span>
+        </Link>
+      </nav>
     </div>
   );
 };
