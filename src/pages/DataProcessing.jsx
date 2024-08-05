@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const DataProcessing = () => {
   const [data, setData] = useState("");

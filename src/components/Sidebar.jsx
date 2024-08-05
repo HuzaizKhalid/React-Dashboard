@@ -52,12 +52,47 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         >
           <span className="mx-3">Data Processing</span>
         </Link>
-
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/model-selection"
+        >
+          <span className="mx-3">Model Selection</span>
+        </Link>
         <Link
           className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
           to="/manage-datasets"
         >
           <span className="mx-3">Manage Datasets</span>
+        </Link>
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/fine-tune-model"
+        >
+          <span className="mx-3">Fine and Tune Model</span>
+        </Link>
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/results"
+        >
+          <span className="mx-3">Results</span>
+        </Link>
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/profile"
+        >
+          <span className="mx-3">Profile</span>
+        </Link>
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/help-and-support"
+        >
+          <span className="mx-3">Help and Support</span>
+        </Link>
+        <Link
+          className="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
+          to="/dashboard"
+        >
+          <span className="mx-3">Dashboard</span>
         </Link>
       </nav>
     </div>
